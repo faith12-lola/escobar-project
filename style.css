@@ -49,15 +49,7 @@ header {
     /* position: relative; */
 }
 
-/* .search-box .srch-icon{
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #777;
-    font-size: 16px;
-    padding-right: 35px;
-} */
+
 .search-box input {
     width: 100%;
     padding: 10px;
@@ -121,6 +113,214 @@ nav ul li {
         flex-direction: column;
         gap: 15px;
     }
+}
+
+
+/* ================= MOBILE MENU ================= */
+
+/* Hide top bar & nav on mobile */
+@media (max-width: 768px) {
+    .top-bar {
+        display: none;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .icons {
+        display: none;
+    }
+
+    header {
+        flex-direction: row;
+    }
+
+    .search-box {
+        display: none;
+    }
+}
+
+/* Hamburger */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
+
+/* Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 99;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar */
+.mobile-menu-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100%;
+    background: #0f0f0f;
+    color: white;
+    padding: 20px;
+    transition: .35s ease;
+    z-index: 100;
+    overflow-y: auto;
+}
+
+.mobile-menu-sidebar.active {
+    left: 0;
+}
+
+/* Header */
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-menu-header h3 {
+    color: #3cb043;
+    font-size: 22px;
+}
+
+.close-btn {
+    background: #0b3d0b;
+    border: none;
+    color: #3cb043;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Search */
+.mobile-search {
+    display: flex;
+    align-items: center;
+    background: #1b1b1b;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+.mobile-search input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    margin-left: 10px;
+    width: 100%;
+}
+
+/* Auth buttons */
+.mobile-auth {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mobile-auth button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.signin {
+    background: transparent;
+    border: 1px solid #3cb043;
+    color: #3cb043;
+}
+
+.signup {
+    background: #3cb043;
+    border: none;
+    color: black;
+}
+
+/* Cart & icons */
+.mobile-user-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.action-item {
+    position: relative;
+    font-size: 22px;
+    color: #3cb043;
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background: #3cb043;
+    color: black;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.cart-price {
+    font-size: 14px;
+}
+
+/* Links */
+.mobile-links {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-links li {
+    border-bottom: 1px solid #1f1f1f;
+}
+
+.mobile-links a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.mobile-links i {
+    color: #3cb043;
+}
+
+/* Footer */
+.mobile-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #1f1f1f;
+    color: #3cb043;
+    display: flex;
+    gap: 10px;
 }
 
 
@@ -798,15 +998,158 @@ button:hover {
     width: 100%;
     border-radius: 16px;
     overflow: hidden;
+    position: relative;
+    height: 400px;
+    /* Added height to ensure visibility */
+}
+
+/* Mobile toggle */
+.mobile-menu-toggle {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+}
+
+/* Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 99;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar */
+.mobile-menu-sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background: #111;
+    color: #fff;
+    padding: 20px;
+    transition: 0.3s ease;
+    z-index: 100;
+}
+
+.mobile-menu-sidebar.active {
+    left: 0;
+}
+
+/* Header */
+.mobile-menu-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 20px;
-    background: #0e0f10;
-    color: white;
-    /* padding: 0; */
-    margin-top: 70px;
 }
+
+.mobile-menu-header h3 {
+    color: #00c853;
+}
+
+.close-btn {
+    background: #0a3d0a;
+    border: none;
+    color: #00c853;
+    font-size: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Search */
+.mobile-search {
+    display: flex;
+    align-items: center;
+    background: #222;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.mobile-search input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    margin-left: 10px;
+    width: 100%;
+}
+
+/* Auth buttons */
+.mobile-auth {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.mobile-auth button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signin {
+    background: transparent;
+    border: 1px solid #00c853;
+    color: #00c853;
+}
+
+.signup {
+    background: #00c853;
+    border: none;
+    color: #000;
+}
+
+/* Links */
+.mobile-links {
+    list-style: none;
+    padding: 0;
+}
+
+.mobile-links li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid #222;
+    cursor: pointer;
+}
+
+.mobile-links i {
+    color: #00c853;
+}
+
+/* Footer */
+.mobile-footer {
+    margin-top: 30px;
+    color: #00c853;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 
 .bann img {
     width: 50%;

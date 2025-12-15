@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Ecobazar</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* Product Details Specific Styles */
+        .product-details-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .product-image-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #e6e6e6;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .product-image-section img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        .product-info-section h1 {
+            font-size: 36px;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 20px;
+            color: #ff8a00;
+        }
+
+        .product-rating span {
+            color: #666;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .product-price {
+            font-size: 24px;
+            color: #00B207;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-price .original-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .product-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e6e6e6;
+            border-radius: 50px;
+            padding: 5px;
+        }
+
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            background: #f2f2f2;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            background: #00B207;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #009906;
+        }
+
+        @media (max-width: 768px) {
+            .product-details-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- nav-bar section -->
+    <div class="top-bar">
+        <div class="left">
+            <span><img src="images/Map Pin.png" alt=""> Store Location: Lincoln - 344, Illinois, Chicago, USA</span>
+        </div>
+        <div class="right">
+            <span>ENG <img src="images/Vector (3).png" alt=""></span>
+            <span>USD <img src="images/Vector (3).png" alt=""></span>
+            <span>Sign In / Sign Up</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <a href="index.html"><span><img src="images/Logo.png" alt=""></span></a>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search">
+            <button>Search</button>
+        </div>
+
+        <div class="icons">
+            <span><img src="images/Heart.png" alt=""></span>
+            <span><img src="images/Cart.png" alt=""></span>
+            <span>Shopping cart: <br> $57.00</span>
+        </div>
+
+        <div class="mobile-menu-toggle">
+            <i class='bx bx-menu'></i>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li class="hm"><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="pages.html">Pages</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="banner" style="background: url('images/Breadcrumbs.png') no-repeat center center/cover; padding: 40px 0;">
+        <div class="banner-overlay"></div>
+        <div class="breadcrumb" style="text-align: center; color: white;">
+            <i class="bx bx-home"></i>
+            <span> / Shop / Product Details</span>
+        </div>
+    </section>
+
+    <!-- Product Details Content -->
+    <div class="product-details-container">
+        <div class="product-image-section">
+            <img id="product-img" src="" alt="Product Image">
+        </div>
+
+        <div class="product-info-section">
+            <h1 id="product-name">Loading...</h1>
+            <div class="product-rating">
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star'></i>
+                <i class='bx bxs-star-half'></i>
+                <span>(4 Reviews)</span>
+            </div>
+            <div class="product-price">
+                <span id="product-price">--</span>
+                <!-- <span class="original-price">$20.00</span> -->
+            </div>
+            <p class="product-description" id="product-desc">
+                Loading product details...
+            </p>
+
+            <div class="product-actions">
+                <div class="quantity-control">
+                    <button class="quantity-btn">-</button>
+                    <input type="text" value="1" class="quantity-input">
+                    <button class="quantity-btn">+</button>
+                </div>
+                <button class="add-to-cart-btn">
+                    Add to Cart <i class='bx bx-cart'></i>
+                </button>
+            </div>
+
+            <div style="margin-top: 20px; font-size: 14px; color: #666;">
+                <p><strong>Category:</strong> <span id="product-category">Vegetables</span></p>
+                <p><strong>Tag:</strong> Fresh, Healthy, Organic</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 class="logo"><img src="images/white logo.png" alt=""></h3>
+                <p>Morbi cursus porttitor enim lobortis molestie. Duis gravida turpis dui, eget bibendum magna congue nec.</p>
+                <p class="contact-info">
+                    <strong>(219) 555-0114</strong> <br>
+                    or <strong>Proxy@gmail.com</strong>
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>My Account</h4>
+                <ul>
+                    <li>My Account</li>
+                    <li>Order History</li>
+                    <li>Shopping Cart</li>
+                    <li>Wishlist</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Helps</h4>
+                <ul>
+                    <li>Contact</li>
+                    <li>Faqs</li>
+                    <li>Terms & Condition</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Proxy</h4>
+                <ul>
+                    <li>About</li>
+                    <li>Shop</li>
+                    <li>Product</li>
+                    <li>Track Order</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Categories</h4>
+                <ul>
+                    <li>Fruit & Vegetables</li>
+                    <li>Meat & Fish</li>
+                    <li>Bread & Bakery</li>
+                    <li>Beauty & Health</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Ecobazar eCommerce © 2021. All Rights Reserved</p>
+            <div class="payment-icons">
+                <span><img src="images/pay.png" alt=""></span>
+                <span><img src="images/Method=Visa.png" alt=""></span>
+                <span><img src="images/Method=Discover.png" alt=""></span>
+                <span><img src="images/Method=Mastercard.png" alt=""></span>
+                <span><img src="images/Cart (1).png" alt=""></span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
