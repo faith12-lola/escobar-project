@@ -29,9 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
             <i class='bx bx-heart'></i>
         </div>
         <div class="action-item">
+            <i class='bx bx-heart'></i>
+        </div>
+        <a href="checkout.html" class="action-item" style="color: inherit; text-decoration: none;">
             <i class='bx bx-cart'></i>
             <span class="cart-count">2</span>
-        </div>
+        </a>
         <div class="cart-price">
             <span>Shopping cart:</span>
             <strong>$57.00</strong>
@@ -232,6 +235,112 @@ document.addEventListener("DOMContentLoaded", () => {
       if (priceEl) priceEl.textContent = product.price;
       if (descEl) descEl.textContent = product.desc;
       if (catEl) catEl.textContent = product.category;
+  }
+
+  // ================= FUNCTIONALITY IMPLEMENTATION =================
+
+  // 1. Cart Functionality
+  let cartCount = 0;
+  const cartCountEl = document.getElementById('cart-count'); // Desktop badge
+  const mobileCartCountEl = document.querySelector('.mobile-user-actions .cart-count'); // Mobile badge
+
+  const updateCartDisplay = () => {
+      if (cartCountEl) cartCountEl.textContent = cartCount;
+      if (mobileCartCountEl) mobileCartCountEl.textContent = cartCount;
+  };
+
+  // Add event listeners to all cart icons/buttons
+  // Select .cart-icon (div wrapper in index), .add-cartt (button in deals), and generic buttons
+  const addCartButtons = document.querySelectorAll('.cart-icon, .add-cartt, .add-to-cart-btn');
+  
+  addCartButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          // e.preventDefault(); // Optional: prevent if it jumps top
+          // Find the product name if possible for better alert
+          const card = btn.closest('.product-card, .produ-card, .product-cardd, .product-details-container');
+          const name = card ? (card.querySelector('h4, .title, h1') ? card.querySelector('h4, .title, h1').innerText : 'Product') : 'Product';
+          
+          cartCount++;
+          updateCartDisplay();
+          alert(`${name} has been added to your cart!`);
+      });
+  });
+
+  // 2. Search Functionality
+  const searchBox = document.querySelector('.search-box input');
+  const searchBtn = document.querySelector('.search-box button');
+
+  if (searchBox && searchBtn) {
+      const performSearch = () => {
+          const query = searchBox.value.trim();
+          if (query) {
+              // Redirect to product.html with search query
+              window.location.href = `product.html?search=${encodeURIComponent(query)}`;
+          }
+      };
+
+      searchBtn.addEventListener('click', performSearch);
+      searchBox.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') performSearch();
+      });
+  }
+
+  // Search Filter on Product Page
+  const searchQuery = urlParams.get('search');
+  if (searchQuery) {
+      const term = searchQuery.toLowerCase();
+      // Select all types of product cards
+      const productCards = document.querySelectorAll('.produ-card, .product-card, .product-cardd'); 
+      let foundCount = 0;
+      
+      productCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(term)) {
+              card.style.display = ''; // Show
+              foundCount++;
+          } else {
+              card.style.display = 'none'; // Hide
+          }
+      });
+      
+      // Optional: Update title to show search results
+      const bannerTitle = document.querySelector('.active'); // Breadcrumb active span
+      if (bannerTitle) bannerTitle.textContent = `Search Results for "${searchQuery}" (${foundCount})`;
+  }
+
+  // 3. Form Handling
+  // Newsletter
+  const newsletterForm = document.querySelector('.newsletter-form');
+  if (newsletterForm) {
+      newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailInput = newsletterForm.querySelector('input');
+          if(emailInput && emailInput.value) {
+            alert(`Thanks for subscribing with ${emailInput.value}!`);
+            newsletterForm.reset();
+          }
+      });
+  }
+
+  // Contact Form
+  const contactForm = document.querySelector('.contact-right form');
+  if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          alert("Your message has been sent successfully! We will get back to you soon.");
+          contactForm.reset();
+      });
+  }
+
+  // Checkout Place Order
+  const placeOrderBtn = document.querySelector('.place-order-btn');
+  if (placeOrderBtn) {
+      placeOrderBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert("Thank you! Your order has been placed successfully.");
+          // Redirect to home or simulated success page
+          window.location.href = "index.html";
+      });
   }
 });
 

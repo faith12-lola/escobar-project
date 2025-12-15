@@ -74,6 +74,28 @@ header {
     font-size: 16px;
 }
 
+.icons span {
+    position: relative;
+    /* For badge positioning */
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #00B207;
+    color: white;
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
 nav {
     background: #1d1d2d;
     padding: 12px 20px;
@@ -92,9 +114,19 @@ nav ul {
 }
 
 nav ul li {
-    color: #999999;
+    /* color: #999999; Removed to let anchor tag control color */
     cursor: pointer;
     font-size: 16px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #00B207;
 }
 
 /* responsive */
@@ -996,11 +1028,22 @@ button:hover {
 
 .bann {
     width: 100%;
-    border-radius: 16px;
     overflow: hidden;
     position: relative;
     height: 400px;
-    /* Added height to ensure visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.bann-content {
+    background-color: #242424;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 /* Mobile toggle */
