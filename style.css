@@ -24,7 +24,10 @@ img {
     color: #666666;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header {
@@ -44,10 +47,11 @@ header {
 }
 
 .search-box {
-    display: flex;
+     display: flex;
     align-items: center;
-    width: 50%;
-    /* position: relative; */
+    /* width: 50%; */
+    justify-content: center;
+    background-color: #0b3d0b;
 }
 
 
